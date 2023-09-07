@@ -40,16 +40,15 @@ public class Main {
                     countries.add(country);
                 }
             } catch (SQLException e) {
-                System.out.println("Errore nell'iterazione del ResultSet.");
+                System.out.println(e.getMessage());
             }
 
             if (countries.size() > 0) {
-                String columnNames = printColumns("ID", "Country Name", "Region Name", "Continent Name");
-                System.out.println(columnNames);
+                System.out.printf("%-30s".repeat(4) + "%n", "ID", "Country Name", "Region Name", "Continent Name");
 
                 for (Country c :
                         countries) {
-                    System.out.println(printColumns(String.valueOf(c.getId()), c.getCountryName(), c.getRegionName(), c.getContinentName()));
+                    System.out.printf("%-30s".repeat(4) + "%n", c.getId(), c.getCountryName(), c.getRegionName(), c.getContinentName());
                 }
 
 
@@ -74,8 +73,8 @@ public class Main {
 
                 String countryName = "";
                 int mostRecentYear = 0;
-                int mostRecentPopulation= 0;
-                long mostRecentGdp= 0;
+                int mostRecentPopulation = 0;
+                long mostRecentGdp = 0;
 
                 try (ResultSet rs = prepareStatement.executeQuery()) {
                     if (rs.next()) {
@@ -119,15 +118,4 @@ public class Main {
         scanner.close();
     }
 
-    public static String printColumns(String... args) {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for (String name :
-                args) {
-            stringBuilder.append(name);
-            stringBuilder.append(" ".repeat(30 - name.length()));
-        }
-
-        return stringBuilder.toString();
-    }
 }
