@@ -26,9 +26,4 @@ public class Country {
     public String getContinentName() {
         return continentName;
     }
-
-    public String getFormattedString() {
-        StringBuilder result = new StringBuilder();
-        return result.toString();
-    }
 }
