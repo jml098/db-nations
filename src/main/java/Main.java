@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static final String DATABASE = "jdbc:mysql://localhost:3306/nation";
-    public static final String USER = "root";
+    public static final String USER = "jaita91";
     public static final String PASSWORD = "JAITA91";
 
     public static void main(String[] args) {
